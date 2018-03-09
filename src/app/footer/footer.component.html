@@ -1,12 +1,21 @@
-<footer class="row fixed-bottom">
-    <div class="col-4">
-        <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>Política de empresa
+<div class="text-right col accordion fixed-bottom encima">
+  <h2 class="acc_trigger font-weight-bold text-light esomejol">
+    <a class="btn btn-primary" href="#">Chatbot</a>
+  </h2>
+  <div class="acc_container">
+    <div class="block">
+      <iframe width="350" height="430" src="https://console.dialogflow.com/api-client/demo/embedded/0fad2f44-3914-4ebf-8254-ddc07cfe64e3"></iframe>
     </div>
-    <div class="col">
-        <ng-template #popContent><iframe width="350" height="430" src="https://console.dialogflow.com/api-client/demo/embedded/ac23f7d4-a0be-4828-86f0-ca2fafc6acca">
-        </iframe></ng-template>
-        <button type="button" class="btn btn-outline-secondary" [ngbPopover]="popContent" style="color:white">
-        ¿Puedo ayudarte?
-        </button>
+  </div>
+</div>
+<footer class="text-left bg-dark blog-footer fixed-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="text-light">&copy;
+          <a class="font-weight-bold text-light" href="./assets/pdp.pdf">Política de privacidad</a>
+        </p>
+      </div>
     </div>
+  </div>
 </footer>

@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database'; 
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  templateUrl: 'blog.component.html',
+  styles: []
 })
+
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  postsObservable: Observable<any[]>;
+  constructor(private db: AngularFireDatabase) { }
 
   ngOnInit() {
+    this.postsObservable = this.getPosts('/posts');
   }
 
+  getPosts(listPath): Observable<any[]> {
+    return this.db.list(listPath).valueChanges();
+  }
 }

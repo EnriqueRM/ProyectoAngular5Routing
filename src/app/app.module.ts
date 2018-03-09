@@ -10,8 +10,12 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { FormCreateComponent } from './form-create/form-create.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CookieService } from 'ngx-cookie-service';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   {
@@ -44,8 +48,7 @@ const appRoutes: Routes = [
     ServiciosComponent,
     ContactoComponent,
     HeaderComponent,
-    FooterComponent,
-    FormCreateComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -55,9 +58,12 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [CookieService, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
